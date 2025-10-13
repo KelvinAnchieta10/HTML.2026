@@ -1,0 +1,20 @@
+
+
+/* Obrigatorio ; no final do CSS */
+
+h1 {
+
+    color: red;
+    background: black;
+}
+p {
+
+    color: blue;
+    font-size: 20px;
+}
+
+button{
+
+    background: yellow;
+    border-color: brown;
+}

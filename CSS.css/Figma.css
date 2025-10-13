@@ -1,0 +1,293 @@
+/* ===== Base ===== */
+* {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+}
+
+/* ===== Header ===== */
+header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin: 44px 0 144px 76px;
+}
+
+.link-header {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #989D9C;
+    cursor: pointer;
+    margin-right: 23px;
+}
+
+.button-header {
+    background: #665AE1;
+    border-radius: 20.5px;
+    width: 130px;
+    height: 41px;
+    cursor: pointer;
+    border: none;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFF;
+}
+
+/* ===== Main ===== */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 0 24px 80px;
+    flex-wrap: wrap;
+    /* permite quebrar no mobile */
+}
+
+.img-logo {
+    width: 568px;
+    height: auto;
+    /* mantém proporção da imagem */
+    max-width: 100%;
+    /* impede de “estourar” a tela */
+    margin-left: 0;
+    /* remove offset fixo */
+    display: block;
+}
+
+section {
+    max-width: 560px;
+    width: 100%;
+}
+
+h1 {
+    color: #515151;
+    font-size: 100px;
+    font-weight: 900;
+    /* corrigido: sem “px” */
+    line-height: 1.1;
+    /* corrigido: valor relativo e sem “;;” */
+}
+
+h2 {
+    color: #515151;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+p {
+    font-weight: 400;
+    /* corrigido: sem “px” */
+    font-size: 24px;
+    line-height: 29px;
+    color: #848484;
+    max-width: 515px;
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 65px;
+}
+
+.button-main {
+    background: #adff00;
+    border-radius: 30px;
+    width: 239px;
+    height: 64px;
+    border: none;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    color: #000000;
+}
+
+/* =============== Breakpoints =============== */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+    header {
+        margin: 32px 24px 80px 24px;
+        /* margens mais leves */
+        justify-content: space-between;
+    }
+
+    h1 {
+        font-size: 72px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+/* Mobile grande (≤ 768px) */
+@media (max-width: 768px) {
+    header {
+        gap: 12px 16px;
+        margin: 24px 16px 48px 16px;
+    }
+
+    /* empilha os links e o botão quando precisar */
+    .link-header {
+        font-size: 18px;
+        line-height: 24px;
+        margin-right: 12px;
+    }
+
+    .button-header {
+        font-size: 18px;
+        width: auto;
+        padding: 8px 16px;
+        height: auto;
+    }
+
+    main {
+        flex-direction: column;
+        /* imagem em cima, texto embaixo */
+        text-align: center;
+        gap: 32px;
+        padding: 0 16px 56px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 32px;
+    }
+
+    .button-main {
+        width: 100%;
+        max-width: 320px;
+        height: 56px;
+        font-size: 20px;
+        line-height: 24px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile pequeno (≤ 480px) */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .link-header {
+        display: inline-block;
+        margin-right: 12px;
+        margin-bottom: 4px;
+    }
+
+    .button-header {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+/* === FIX 1: esconder totalmente o checkbox === */
+.nav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    appearance: none;
+    /* webkit */
+    -webkit-appearance: none;
+}
+
+/* === FIX 2: menu fechado no mobile e abrindo só quando checado === */
+@media (max-width: 768px) {
+
+    /* fechado por padrão */
+    .nav-links {
+        display: none !important;
+        /* garante que não herde display:flex */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 16px;
+        background: #fff;
+        border-top: 1px solid #eee;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+        z-index: 2;
+    }
+
+    /* quando marcar o checkbox, abre */
+    #nav-toggle:checked~.nav-links {
+        display: flex !important;
+    }
+
+    /* botão hambúrguer visível e por cima */
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        width: 32px;
+        height: 24px;
+        justify-content: space-between;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 3;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 3px;
+        border-radius: 2px;
+        background: #515151;
+        transition: transform .25s ease, opacity .25s ease;
+    }
+
+    /* animação para X */
+    #nav-toggle:checked+.hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    #nav-toggle:checked+.hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #nav-toggle:checked+.hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
