@@ -96,7 +96,7 @@ p {
 }
 
 .button-main {
-    background: #adff00;
+    background: #f10202;
     border-radius: 30px;
     width: 239px;
     height: 64px;
@@ -106,7 +106,7 @@ p {
     font-weight: 700;
     font-size: 28px;
     line-height: 34px;
-    color: #000000;
+    color: #f7f7f7;
 }
 
 /* =============== Breakpoints =============== */
